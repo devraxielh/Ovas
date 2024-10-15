@@ -5,6 +5,7 @@ import Knn from './components/Knn';
 import Tree from './components/Tree';
 import Kmeans from './components/Kmeans';
 import Pca from './components/Pca';
+import Crossvalidation from './components/Crossvalidation';
 import Home from './components/Home';
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
           <Route path="/tree" element={<Tree />} />
           <Route path="/kmeans" element={<Kmeans />} />
           <Route path="/pca" element={<Pca />} />
-          
+          <Route path="/crossvalidation" element={<Crossvalidation />} />
         </Routes>
       </div>
     </Router>
