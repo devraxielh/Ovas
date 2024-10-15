@@ -7,6 +7,7 @@ import Kmeans from './components/Kmeans';
 import Pca from './components/Pca';
 import Crossvalidation from './components/Crossvalidation';
 import EvaluationRegresion from './components/EvaluationRegresion';
+import EvaluationClasificacion from './components/EvaluationClasificacion';
 import Home from './components/Home';
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/pca" element={<Pca />} />
           <Route path="/crossvalidation" element={<Crossvalidation />} />
           <Route path="/evaluationregresion" element={<EvaluationRegresion />} />
+          <Route path="/evaluationclasificacion" element={<EvaluationClasificacion />} />
         </Routes>
       </div>
     </Router>
