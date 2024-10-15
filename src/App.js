@@ -8,6 +8,7 @@ import Pca from './components/Pca';
 import Crossvalidation from './components/Crossvalidation';
 import EvaluationRegresion from './components/EvaluationRegresion';
 import EvaluationClasificacion from './components/EvaluationClasificacion';
+import Rn from './components/Rn';
 import Home from './components/Home';
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/crossvalidation" element={<Crossvalidation />} />
           <Route path="/evaluationregresion" element={<EvaluationRegresion />} />
           <Route path="/evaluationclasificacion" element={<EvaluationClasificacion />} />
+          <Route path="/rn" element={<Rn />} />
         </Routes>
       </div>
     </Router>
