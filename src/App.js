@@ -9,6 +9,7 @@ import Crossvalidation from './components/Crossvalidation';
 import EvaluationRegresion from './components/EvaluationRegresion';
 import EvaluationClasificacion from './components/EvaluationClasificacion';
 import Rn from './components/Rn';
+import RnAvanzada from './components/RnAvanzada';
 import Home from './components/Home';
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/evaluationregresion" element={<EvaluationRegresion />} />
           <Route path="/evaluationclasificacion" element={<EvaluationClasificacion />} />
           <Route path="/rn" element={<Rn />} />
+          <Route path="/rnavanzada" element={<RnAvanzada />} />
         </Routes>
       </div>
     </Router>
