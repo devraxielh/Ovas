@@ -33,8 +33,6 @@ const MetricasClasificacion = () => {
 
   return (
     <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Métricas de Clasificación Interactivas</h1>
-      
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div>
           <h2 className="text-xl font-semibold mb-2">Matriz de Confusión</h2>
