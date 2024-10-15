@@ -12,6 +12,8 @@ import Rn from './components/Rn';
 import RnAvanzada from './components/RnAvanzada';
 import Gradientdescent from './components/Gradientdescent';
 import ContratoMaterial from './components/ContratoMaterial';
+import TiposDatosBasicos from './components/TiposDatosBasicos';
+import VariablesAsignacion from './components/VariablesAsignacion';
 import Home from './components/Home';
 const App = () => {
   return (
@@ -31,6 +33,8 @@ const App = () => {
           <Route path="/rnavanzada" element={<RnAvanzada />} />
           <Route path="/gradientdescent" element={<Gradientdescent />} />
           <Route path="/contratomaterial" element={<ContratoMaterial />} />
+          <Route path="/tiposdatosbasicos" element={<TiposDatosBasicos />} />
+          <Route path="/variablesasignacion" element={<VariablesAsignacion />} />
         </Routes>
       </div>
     </Router>
