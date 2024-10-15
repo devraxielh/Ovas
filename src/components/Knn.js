@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogAction } from '@/components/ui/alert-dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button, TextField, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Typography } from '@mui/material';
 
 const KNNAnimation = () => {
   const [points, setPoints] = useState([]);
@@ -12,6 +10,7 @@ const KNNAnimation = () => {
   const [manualX, setManualX] = useState('');
   const [manualY, setManualY] = useState('');
   const [explanation, setExplanation] = useState('');
+  const [openDialog, setOpenDialog] = useState(false);
   const canvasRef = useRef(null);
 
   const colors = ['red', 'blue'];
@@ -116,11 +115,8 @@ const KNNAnimation = () => {
       return acc;
     }, {});
 
-    return `El nuevo punto fue clasificado como ${colors[predictedClass]}.\n
-    De los ${k} vecinos más cercanos:
-    ${counts[0] || 0} son de clase roja
-    ${counts[1] || 0} son de clase azul
-    La clase mayoritaria es ${colors[predictedClass]}, por lo tanto, esa es la clasificación asignada.`;
+    return `El punto es clasificado como ${colors[predictedClass]}. De los ${k} vecinos más cercanos:
+    ${counts[0] || 0} son de clase roja, ${counts[1] || 0} son de clase azul`;
   };
 
   const handleManualClassification = () => {
@@ -132,72 +128,34 @@ const KNNAnimation = () => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-4">
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: '1vh' }}>
       <canvas
         ref={canvasRef}
         width={400}
         height={400}
         onClick={handleCanvasClick}
-        className="border border-gray-300"
+        style={{ border: '1px solid #ccc' }}
       />
-      <div className="flex items-center space-x-2">
-        <label htmlFor="k-value" className="font-medium">K:</label>
-        <Input
-          id="k-value"
+      <div className="flex items-center space-x-2" style={{ marginTop: '16px' }}>
+        <TextField
+          label="K"
           type="number"
           value={k}
           onChange={(e) => setK(Number(e.target.value))}
-          min={1}
-          max={20}
-          className="w-16"
+          inputProps={{ min: 1, max: 20 }}
+          size="small"
         />
-        <Button onClick={generatePoints}>Generar Nuevos Datos</Button>
+        <Button variant="contained" onClick={generatePoints}>
+          Generar Nuevos Datos
+        </Button>
       </div>
-      <div className="flex items-center space-x-2">
-        <Input
-          type="number"
-          placeholder="X"
-          value={manualX}
-          onChange={(e) => setManualX(e.target.value)}
-          className="w-20"
-        />
-        <Input
-          type="number"
-          placeholder="Y"
-          value={manualY}
-          onChange={(e) => setManualY(e.target.value)}
-          className="w-20"
-        />
-        <Button onClick={handleManualClassification}>Clasificar</Button>
-      </div>
-      {newPoint && (
-        <div className="text-lg font-semibold">
-          Clase predicha: {colors[predictedClass]}
-        </div>
-      )}
       {explanation && (
-        <div className="mt-4 p-4 bg-gray-100 rounded-md">
-          <h3 className="font-bold mb-2">Explicación:</h3>
-          <pre className="whitespace-pre-wrap">{explanation}</pre>
+        <div style={{ marginTop: '1px', width: '90%', padding: '10px', backgroundColor: '#f0f0f0', borderRadius: '8px', textAlign: 'center' }}>
+          <Typography component="pre">
+            {explanation}
+          </Typography>
         </div>
       )}
-      <AlertDialog>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Cómo usar la animación KNN</AlertDialogTitle>
-            <AlertDialogDescription>
-              1. Haz clic en "Generar Nuevos Datos" para crear un nuevo conjunto de puntos.
-              2. Haz clic en el lienzo para agregar un nuevo punto o usa el formulario para introducir coordenadas.
-              3. Los K vecinos más cercanos se resaltarán en amarillo.
-              4. Ajusta el valor de K para ver cómo cambia la clasificación.
-              5. La clase predicha y una explicación se mostrarán debajo del lienzo.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction>Entendido</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </div>
   );
 };
