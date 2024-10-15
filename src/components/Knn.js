@@ -149,10 +149,16 @@ const KNNAnimation = () => {
           Generar Nuevos Datos
         </Button>
       </div>
-      {explanation && (
+      {explanation ? (
         <div style={{ marginTop: '1px', width: '90%', padding: '10px', backgroundColor: '#f0f0f0', borderRadius: '8px', textAlign: 'center' }}>
           <Typography component="pre">
             {explanation}
+          </Typography>
+        </div>
+      ) : (
+        <div style={{ marginTop: '1px', width: '90%', padding: '10px', backgroundColor: '#f0f0f0', borderRadius: '8px', textAlign: 'center' }}>
+          <Typography component="p">
+            Presiona en el canvas para clasificar un nuevo punto
           </Typography>
         </div>
       )}
