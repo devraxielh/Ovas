@@ -1,0 +1,72 @@
+.decision-tree-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 0vh;
+    padding: 0.5rem;
+  }
+  
+  .node-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .node-button {
+    position: relative;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #a0d2eb;
+  }
+  
+  .node-button.leaf {
+    background-color: #c6f6d5;
+  }
+  
+  .node-button:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .node-line-vertical {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background-color: rgb(255, 255, 255,0);
+  }
+  
+  .node-line-horizontal {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255,0);
+  }
+  
+  .node-children-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 1rem;
+  }
+  
+  .node-children-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255,0);
+  }
