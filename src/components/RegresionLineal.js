@@ -41,12 +41,8 @@ const RegresionLinealInteractiva = () => {
   ];
 
   return (
-    <Box sx={{ p: 4, bgcolor: 'background.paper', borderRadius: 2 }}>
-      <Typography variant="h4" component="h2" gutterBottom>
-        Regresión Lineal Interactiva
-      </Typography>
-
-      <Box sx={{ mb: 4, display: 'flex', gap: 2 }}>
+    <Box sx={{ p: 1, bgcolor: 'background.paper', borderRadius: 2 }}>
+      <Box sx={{ mb: 1, display: 'flex', gap: 2 }}>
         <Button variant="contained" color="primary" onClick={generarDatos}>
           Generar Nuevos Datos
         </Button>
